@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using VeryRelaxedApi.DTO;
 using VeryRelaxedApi.Models;
 
 namespace VeryRelaxedApi.Repository
@@ -34,16 +35,16 @@ namespace VeryRelaxedApi.Repository
             }
             return;
         }
-        public async Task RegisterPlayer(string name, string age, string preferredFoot, string nationality)
+        public async Task RegisterPlayer(PlayerDto player)
         {
-            var player = new Footballer { 
-                Name = name,
-                Age = Int32.Parse(age),
-                PrefferedFoot = preferredFoot,
-                Nationality = nationality,
+            var newPlayer = new Footballer { 
+                Name = player.Name,
+                Age = player.Age,
+                PrefferedFoot = player.PrefferedFoot,
+                Nationality = player.Nationality,
                 CreatedDate = DateTime.Now,
             };
-            await _context.Footballers.AddAsync(player);
+            await _context.Footballers.AddAsync(newPlayer);
 
             await _context.SaveChangesAsync();
             return;

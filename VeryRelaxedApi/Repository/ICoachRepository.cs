@@ -1,4 +1,5 @@
 ﻿using VeryRelaxedApi.Models;
+using VeryRelaxedApi.DTO;
 
 namespace VeryRelaxedApi.Repository
 
@@ -7,7 +8,7 @@ namespace VeryRelaxedApi.Repository
     {
         Task<List<Coach>> GetAllCoaches();
 
-        Task AddCoach(string name, string nationality, string styleDescription, string age);
+        Task AddCoach(CoachDto coach);
 
         Task RemoveCoach(Guid id);
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VeryRelaxedApi.Models;
 using VeryRelaxedApi.BusinessLogic;
+using VeryRelaxedApi.DTO;
 
 namespace VeryRelaxedApi.Controllers
 {
@@ -35,11 +36,11 @@ namespace VeryRelaxedApi.Controllers
         }
 
         [HttpPost("addCoach")]
-        public async Task<IActionResult> AddCoach(string name, string nationality, string styleDescription, string age)
+        public async Task<IActionResult> AddCoach(CoachDto coach)
         {
             try
             {
-                await _coachBusinessLogic.AddCoach(name, nationality, styleDescription, age);
+                await _coachBusinessLogic.AddCoach(coach);
                 return Ok();
             }
             catch (Exception ex)

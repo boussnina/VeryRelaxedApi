@@ -1,5 +1,6 @@
 ﻿using VeryRelaxedApi.Models;
 using VeryRelaxedApi.Repository;
+using VeryRelaxedApi.DTO;
 
 namespace VeryRelaxedApi.BusinessLogic
 {
@@ -17,9 +18,9 @@ namespace VeryRelaxedApi.BusinessLogic
             return result;
         }
 
-        public async Task AddCoach(string name, string nationality, string styleDescription, string age)
+        public async Task AddCoach(CoachDto coach)
         {
-            await _coachRepository.AddCoach(name, nationality, styleDescription, age);
+            await _coachRepository.AddCoach(coach);
 
         }
 

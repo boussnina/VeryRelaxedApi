@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VeryRelaxedApi.Models;
+using VeryRelaxedApi.DTO;
 
 namespace VeryRelaxedApi.Repository
 {
@@ -18,14 +19,14 @@ namespace VeryRelaxedApi.Repository
             return result;
         }
 
-        public async Task AddCoach(string name, string nationality, string styleDescription, string age)
+        public async Task AddCoach(CoachDto coach)
         {
             var newCoach = new Coach
             {
-                Name = name,
-                Nationality = nationality,
-                StyleDescription = styleDescription,
-                Age = Int32.Parse(age),
+                Name = coach.Name,
+                Nationality = coach.Nationality,
+                StyleDescription = coach.StyleDescription,
+                Age = coach.Age,
             };
 
             await _context.Coaches.AddAsync(newCoach);

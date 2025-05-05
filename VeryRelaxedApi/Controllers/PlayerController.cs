@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using VeryRelaxedApi.Models;
 using VeryRelaxedApi.BusinessLogic;
+using VeryRelaxedApi.DTO;
 
 namespace VeryRelaxedApi.Controllers
 {
@@ -52,12 +53,12 @@ namespace VeryRelaxedApi.Controllers
         }
 
         [HttpPost("register-player")]
-        public async Task<IActionResult> RegisterPlayer([FromQuery] string name, [FromQuery] string age, [FromQuery] string nationality, [FromQuery] string prefferedFoot)
+        public async Task<IActionResult> RegisterPlayer([FromQuery] PlayerDto player)
         {
             try
             {
-                await _playerBusinessLogic.RegisterPlayer(name, age, nationality, prefferedFoot);
-                return Ok($"Player registered with name {name}");
+                await _playerBusinessLogic.RegisterPlayer(player);
+                return Ok($"Player registered with name {player.Name}");
             }
             catch (Exception ex)
             {

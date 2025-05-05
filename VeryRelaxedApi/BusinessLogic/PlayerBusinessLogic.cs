@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using VeryRelaxedApi.BusinessLogic;
+using VeryRelaxedApi.DTO;
 using VeryRelaxedApi.Models;
 using VeryRelaxedApi.Repository;
 
@@ -35,9 +36,9 @@ namespace VeryRelaxedApi.BusinessLogic
 
         }
 
-        public async Task RegisterPlayer(string name, string age, string preferredFoot, string nationality)
+        public async Task RegisterPlayer(PlayerDto player)
         {
-            await _playerRepository.RegisterPlayer(name, age, preferredFoot, nationality);
+            await _playerRepository.RegisterPlayer(player);
 
             return;
         }

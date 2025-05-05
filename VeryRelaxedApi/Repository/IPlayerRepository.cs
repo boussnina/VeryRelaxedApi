@@ -1,4 +1,5 @@
-﻿using VeryRelaxedApi.Models;
+﻿using VeryRelaxedApi.DTO;
+using VeryRelaxedApi.Models;
 
 namespace VeryRelaxedApi.Repository
 {
@@ -9,6 +10,6 @@ namespace VeryRelaxedApi.Repository
 
         Task ChangePlayerNameAsync(string oldName, string newName);
 
-        Task RegisterPlayer(string name, string age, string preferredFoot, string nationality);
+        Task RegisterPlayer(PlayerDto player);
     }
 }
