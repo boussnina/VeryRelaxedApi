@@ -13,4 +13,5 @@ public class MyDbContext : DbContext
 
     public DbSet<Coach> Coaches { get; set; }
     public DbSet<Referee> Referees { get; set; }
+
 }

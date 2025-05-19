@@ -21,6 +21,11 @@ builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
 builder.Services.AddScoped<ICoachBusinessLogic, CoachBusinessLogic>();
 builder.Services.AddScoped<ICoachRepository, CoachRepository>();
 
+builder.Services.AddScoped<IRefereeBusinessLogic, RefereeBusinessLogic>();
+builder.Services.AddScoped<IRefereeRepository, RefereeRepository>();
+
+builder.Services.AddHostedService<BirthdayCheckService>();
+
 
 var app = builder.Build();
 
